@@ -22,7 +22,7 @@
               ref="htmlContent"
               style="width: 100%"
           >
-            <div><img src="https://studio-guez.github.io/filogie.signature/logo.png" alt="logo Fondation Filogie"><br></div>
+            <div><img src="https://studio-guez.github.io/filogie.signature/logo.png" alt="logo Fondation Filogie" width="122" height="39" style="width: 122px; height: 39px; max-width: 122px; display: block;"><br></div>
             <div><br></div>
             <div><span style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"><b>{{getCleanedEmptyString(firstname, 'prénom')}} {{getCleanedEmptyString(name, '/ nom')}}</b></span><br></div>
             <div><span style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">{{getCleanedEmptyString(activity, 'fonction')}}</span><br></div>
@@ -73,7 +73,7 @@
                     readonly
                     v-if="showCode"
           >
-            <div><img src="https://studio-guez.github.io/filogie.signature/logo.png" alt="logo Fondation Filogie"><br></div>
+            <div><img src="https://studio-guez.github.io/filogie.signature/logo.png" alt="logo Fondation Filogie" width="122" height="39" style="width: 122px; height: 39px; max-width: 122px; display: block;"><br></div>
             <div><br></div>
             <div><span style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"><b>{{getCleanedEmptyString(firstname, 'prénom')}} {{getCleanedEmptyString(name, '/ nom')}}</b></span><br></div>
             <div><span style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">{{getCleanedEmptyString(activity, 'fonction')}}</span><br></div>
