@@ -11,6 +11,7 @@
           <input type="text" placeholder="nom"      v-model="name">
           <input type="text" placeholder="fonction" v-model="activity" >
           <input type="text" placeholder="email"   v-model="email" >
+          <input type="text" placeholder="+41000…"   v-model="phone" >
         </form>
 
         <div
@@ -22,29 +23,46 @@
               ref="htmlContent"
               style="width: 100%"
           >
-            <div><img src="https://studio-guez.github.io/filogie.signature/logo.png" alt="logo Fondation Filogie" width="122" height="39" style="width: 122px; height: 39px; max-width: 122px; display: block;"><br></div>
+            <div style="font-family: Helvetica, sans-serif; margin: 0; font-size: 15px; line-height: 18px;"
+              ><b>{{getCleanedEmptyString(firstname, 'prénom')}} {{getCleanedEmptyString(name, '/ nom')}}</b></div>
+            <div style="font-family: Helvetica, sans-serif; margin: 0; font-size: 15px; line-height: 18px;"
+              >{{getCleanedEmptyString(activity, 'fonction')}}</div>
             <div><br></div>
-            <div><span style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"><b>{{getCleanedEmptyString(firstname, 'prénom')}} {{getCleanedEmptyString(name, '/ nom')}}</b></span><br></div>
-            <div><span style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">{{getCleanedEmptyString(activity, 'fonction')}}</span><br></div>
-            <div><br></div>
-            <div><span style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"><b>Fondation Filogie</b></span><br></div>
-            <div><span style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">Route de la Galaise 17</span><br></div>
-            <div><span style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">1228 Plan-les-Ouates</span><br></div>
-            <div><br></div>
-            <div><a :href="'mailto:' + email" target="_blank"
-                    rel="noopener noreferrer">
-              <span style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">
+            <div
+              ><img src="https://studio-guez.github.io/filogie.signature/logo.png" alt="logo Fondation Filogie" width="122" height="39" style="width: 122px; height: 39px; max-width: 122px; display: block;"></div>
+            <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
+              ><b>Fondation Filogie</b></div>
+            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
+              ><a :href="'mailto:' + email"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
+              >
                 <u>{{getCleanedEmptyString(email, 'email') }}</u>
-              </span></a>
-              <u><br></u>
+              </a>
             </div>
-            <div><a href="https://filogie.ch/" target="_blank"
+            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
+            ><a :href="'tel:' + phone"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
+            >
+              <u>{{getCleanedEmptyString(phone, 'votre numéro de téléphone', true) }}</u>
+            </a>
+            </div>
+            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
+            ><a href="https://filogie.ch/" target="_blank"
                     rel="noopener noreferrer">
-              <span style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">
-                <u>filogie.ch</u>
-              </span></a>
-              <u><br></u>
+                filogie.ch
+              </a>
             </div>
+
+            <div><br></div>
+
+            <div style="color:#919191; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"><i>Accès bureau</i></div>
+            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">Route de la Galaise 17</div>
+            <div style="color:#919191; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"><i>Adresse postale</i></div>
+            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">1228 Plan-les-Ouates</div>
           </div>
         </div>
         <button
@@ -73,29 +91,46 @@
                     readonly
                     v-if="showCode"
           >
-            <div><img src="https://studio-guez.github.io/filogie.signature/logo.png" alt="logo Fondation Filogie" width="122" height="39" style="width: 122px; height: 39px; max-width: 122px; display: block;"><br></div>
+            <div style="font-family: Helvetica, sans-serif; margin: 0; font-size: 15px; line-height: 18px;"
+              ><b>{{getCleanedEmptyString(firstname, 'prénom')}} {{getCleanedEmptyString(name, '/ nom')}}</b></div>
+            <div style="font-family: Helvetica, sans-serif; margin: 0; font-size: 15px; line-height: 18px;"
+              >{{getCleanedEmptyString(activity, 'fonction')}}</div>
             <div><br></div>
-            <div><span style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"><b>{{getCleanedEmptyString(firstname, 'prénom')}} {{getCleanedEmptyString(name, '/ nom')}}</b></span><br></div>
-            <div><span style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">{{getCleanedEmptyString(activity, 'fonction')}}</span><br></div>
-            <div><br></div>
-            <div><span style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"><b>Fondation Filogie</b></span><br></div>
-            <div><span style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">Route de la Galaise 17</span><br></div>
-            <div><span style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">1228 Plan-les-Ouates</span><br></div>
-            <div><br></div>
-            <div><a :href="'mailto:' + email" target="_blank"
-                    rel="noopener noreferrer">
-              <span style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">
+            <div
+              ><img src="https://studio-guez.github.io/filogie.signature/logo.png" alt="logo Fondation Filogie" width="122" height="39" style="width: 122px; height: 39px; max-width: 122px; display: block;"></div>
+            <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
+              ><b>Fondation Filogie</b></div>
+            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
+              ><a :href="'mailto:' + email"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
+              >
                 <u>{{getCleanedEmptyString(email, 'email') }}</u>
-              </span></a>
-              <u><br></u>
+              </a>
             </div>
-            <div><a href="https://filogie.ch/" target="_blank"
+            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
+            ><a :href="'tel:' + phone"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
+            >
+              <u>{{getCleanedEmptyString(phone, 'votre numéro de téléphone', true) }}</u>
+            </a>
+            </div>
+            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
+            ><a href="https://filogie.ch/" target="_blank"
                     rel="noopener noreferrer">
-              <span style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">
-                <u>filogie.ch</u>
-              </span></a>
-              <u><br></u>
+                filogie.ch
+              </a>
             </div>
+
+            <div><br></div>
+
+            <div style="color:#919191; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"><i>Accès bureau</i></div>
+            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">Route de la Galaise 17</div>
+            <div style="color:#919191; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"><i>Adresse postale</i></div>
+            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">1228 Plan-les-Ouates</div>
           </textarea>
         </div>
 
@@ -116,6 +151,7 @@ export default defineComponent({
       name: '',
       activity: '',
       email: '',
+      phone: '',
       showCode: false,
     }
   },
@@ -157,7 +193,8 @@ export default defineComponent({
 
     },
 
-    getCleanedEmptyString(value: string, placeholder: string):string {
+    getCleanedEmptyString(value: string, placeholder: string, removeWhiteSpace?: boolean):string {
+      if(removeWhiteSpace) value = value.replace(/\s/g, '')
       if(value.length > 0) return value
       return placeholder + ' doit être rempli'
     }
