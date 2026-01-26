@@ -29,7 +29,7 @@
               >{{getCleanedEmptyString(activity, 'fonction')}}</div>
             <div><br></div>
             <div
-              ><img src="https://studio-guez.github.io/filogie.signature/logo.png" alt="logo Fondation Filogie" width="244" height="80" style="width: 244px; height: 80px; max-width: 244px; display: block;"></div>
+              ><img src="https://studio-guez.github.io/filogie.signature/logo.png" alt="logo Fondation Filogie" width="122" height="40" style="width: 122px; height: 40px; max-width: 122px; display: block;"></div>
             <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
               ><b>Fondation Filogie</b></div>
             <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
@@ -97,7 +97,7 @@
               >{{getCleanedEmptyString(activity, 'fonction')}}</div>
             <div><br></div>
             <div
-              ><img src="https://studio-guez.github.io/filogie.signature/logo.png" alt="logo Fondation Filogie" width="244" height="80" style="width: 244px; height: 80px; max-width: 244px; display: block;"></div>
+              ><img src="https://studio-guez.github.io/filogie.signature/logo.png" alt="logo Fondation Filogie" width="122" height="40" style="width: 122px; height: 40px; max-width: 122px; display: block;"></div>
             <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
               ><b>Fondation Filogie</b></div>
             <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
