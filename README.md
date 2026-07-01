@@ -1,75 +1,68 @@
-# Nuxt 3 Minimal Starter
+# filogie.signature
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Email signature generator for Filogie — built with Nuxt 3.
 
-## Setup
+## Prerequisites
 
-Make sure to install the dependencies:
+- [Docker](https://www.docker.com/) and Docker Compose
 
-```bash
-# npm
-npm install
+---
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## Getting started
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+git clone https://github.com/studio-guez/filogie.signature.git
+cd filogie.signature
 ```
 
-## Production
+---
 
-Build the application for production:
+## Run locally
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+docker compose up
 ```
 
-Locally preview production build:
+App is available at <http://localhost:3000> with hot-reload.
+
+To stop:
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+docker compose down
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+---
+
+## Build for production (GitHub Pages)
+
+```bash
+docker compose run --rm app npm run build.github.page
+```
+
+This generates a static build into the `docs/` folder, which is what GitHub Pages serves.
+
+---
+
+## Update dependencies
+
+Run npm commands through the container so the lockfile is generated for Linux:
+
+```bash
+# update all dependencies
+docker compose run --rm app sh -c "npm update && npm install"
+
+# add a new package
+docker compose run --rm app npm install <package>
+
+# audit for vulnerabilities
+docker compose run --rm app npm audit
+
+# auto-fix vulnerabilities
+docker compose run --rm app npm audit fix
+```
+
+Commit the updated `package.json` and `package-lock.json`, then rebuild the image:
+
+```bash
+docker compose up --build
+```
