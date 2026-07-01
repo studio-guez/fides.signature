@@ -1,11 +1,15 @@
 FROM node:22-slim
 
-WORKDIR /app
+RUN groupmod -g 1000 node && usermod -u 1000 node
 
-COPY package*.json ./
+WORKDIR /app
+RUN chown node:node /app
+
+COPY --chown=node:node package*.json ./
+USER node
 RUN rm -f package-lock.json && npm install
 
-COPY . .
+COPY --chown=node:node . .
 
 EXPOSE 3000
 
