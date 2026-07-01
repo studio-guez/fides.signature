@@ -247,7 +247,6 @@ h1 {
     display: block;
     position: relative;
     width: 100%;
-    cursor: pointer;
     box-sizing: border-box;
     background: var(--color-background);
     box-shadow: inset 0 0 0 2px currentColor;
