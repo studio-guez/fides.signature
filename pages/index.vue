@@ -203,7 +203,7 @@ export default defineComponent({
     getCleanedEmptyString(value: string, placeholder: string, removeWhiteSpace?: boolean):string {
       if(removeWhiteSpace) value = value.replace(/\s/g, '')
       if(value.length > 0) return value
-      return `<span style="color: red">${placeholder} doit être renseigné</span>`
+      return `<span style="color: #FF0000">${placeholder} doit être renseigné</span>`
     }
   },
 
