@@ -45,25 +45,24 @@
             ><a :href="'tel:' + phone.replace('(0)', '').replace(/\s/g, '')"
                 target="_blank"
                 rel="noopener noreferrer"
-                style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
-            >
-              <span v-html="getCleanedEmptyString(phone, 'Nº de téléphone')"></span>
-            </a>
+                style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px; text-decoration: none; color: #000000;"
+                v-html="getCleanedEmptyString(phone, 'Nº de téléphone')"
+            ></a>
             </div>
 
             <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
               ><a :href="'mailto:' + email"
                  target="_blank"
                  rel="noopener noreferrer"
-                 style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
-              >
-                <span v-html="getCleanedEmptyString(email, 'Email')"></span>
-              </a>
+                 style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px; text-decoration: none; color: #000000;"
+                 v-html="getCleanedEmptyString(email, 'Email')"
+              ></a>
             </div>
 
             <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
             ><a href="https://fondationfides.ch/" target="_blank"
-                    rel="noopener noreferrer">
+                    rel="noopener noreferrer"
+                    style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px; text-decoration: none; color: #000000;">
                 fondationfides.ch
               </a>
             </div>
@@ -185,7 +184,9 @@ export default defineComponent({
       this.$nextTick(() => {
         const el = this.$refs.htmlContent as HTMLElement
         if (!el) return
-        const clean = el.innerHTML.replace(/ data-v-[a-z0-9]+=""/g, '')
+        const clean = el.innerHTML
+          .replace(/ data-v-[a-z0-9]+(?:="[^"]*")?/g, '')
+          .replace(/<span style="color: #FF0000">(.*?)<\/span>/gs, '$1')
         this.signatureCode = this.prettifyHtml(clean)
       })
     },
