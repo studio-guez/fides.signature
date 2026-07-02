@@ -7,11 +7,11 @@
         <form
             class="v-mail-signature-generator__content fp-ui-form"
         >
-          <input type="text" placeholder="Prénom"   v-model="firstname">
-          <input type="text" placeholder="Nom"      v-model="name">
-          <input type="text" placeholder="Fonction" v-model="activity" >
-          <input type="text" placeholder="Email"   v-model="email" >
-          <input type="text" placeholder="+41 (0) 22 7…"   v-model="phone" >
+          <input type="text" placeholder="Prénom *"   v-model="firstname">
+          <input type="text" placeholder="Nom *"      v-model="name">
+          <input type="text" placeholder="Fonction *" v-model="activity" >
+          <input type="text" placeholder="Email *"   v-model="email" >
+          <input type="text" placeholder="+41 (0) 22 7… *"   v-model="phone" >
           <textarea placeholder="Remarques éventuelles (absences, etc.)"   v-model="remarks"></textarea>
         </form>
 
