@@ -39,12 +39,12 @@
               ><b>Fondation Fides</b></div>
 
             <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
-            ><a :href="'tel:' + phone"
+            ><a :href="'tel:' + phone.replace('(0)', '').replace(/\s/g, '')"
                 target="_blank"
                 rel="noopener noreferrer"
                 style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
             >
-              <u>{{getCleanedEmptyString(phone, 'votre numéro de téléphone', true) }}</u>
+              <u>{{getCleanedEmptyString(phone, 'votre numéro de téléphone') }}</u>
             </a>
             </div>
 
