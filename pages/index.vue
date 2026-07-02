@@ -31,11 +31,6 @@
 
             <div><br></div>
 
-            <div
-              ><img src="https://studio-guez.github.io/fides.signature/logo.png" alt="logo Fondation Fides" width="122" height="40" style="width: 122px; height: 40px; max-width: 122px; display: block;"></div>
-
-            <div><br></div>
-
             <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
               >Fondation Immobilière <br>pour le Développement <br>des Entreprises Sociales</div>
 
@@ -77,6 +72,11 @@
               <div style="font-family: Helvetica, sans-serif; font-size: 13px; line-height: 16px;"
                 ><i v-html="remarks.replace(/\n/g, '<br>')"></i></div>
             </template>
+
+            <div><br></div>
+
+            <div
+              ><img src="https://studio-guez.github.io/fides.signature/logo.png" alt="logo Fondation Fides" width="122" height="40" style="width: 122px; height: 40px; max-width: 122px; display: block;"></div>
           </div>
         </div>
         <button
