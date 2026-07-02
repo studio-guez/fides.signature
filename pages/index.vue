@@ -12,6 +12,7 @@
           <input type="text" placeholder="Fonction" v-model="activity" >
           <input type="text" placeholder="Email"   v-model="email" >
           <input type="text" placeholder="+41 (0) 22 7…"   v-model="phone" >
+          <textarea placeholder="Remarques éventuelles (absences, etc.)"   v-model="remarks"></textarea>
         </form>
 
         <div
@@ -71,6 +72,11 @@
                 fondationfides.ch
               </a>
             </div>
+
+            <template v-if="remarks">
+              <div style="font-family: Helvetica, sans-serif; font-size: 13px; line-height: 16px;"
+                ><i v-html="remarks.replace(/\n/g, '<br>')"></i></div>
+            </template>
           </div>
         </div>
         <button
@@ -120,6 +126,7 @@ export default defineComponent({
       activity: '',
       email: '',
       phone: '',
+      remarks: '',
       showCode: false,
       signatureCode: '',
     }
@@ -134,6 +141,7 @@ export default defineComponent({
     activity: 'updateSignatureCode',
     email: 'updateSignatureCode',
     phone: 'updateSignatureCode',
+    remarks: 'updateSignatureCode',
   },
 
     methods: {
@@ -240,7 +248,8 @@ h1 {
   display: flex;
   flex-wrap: wrap;
 
-  > input {
+  > input,
+  > textarea {
     all: unset;
     display: block;
     position: relative;
@@ -251,6 +260,12 @@ h1 {
     margin-bottom: 1rem;
     line-height: .5ex;
     padding: .5rem 1rem;
+  }
+
+  > textarea {
+    line-height: 1.4;
+    resize: vertical;
+    min-height: 4rem;
   }
 }
 
