@@ -51,7 +51,7 @@
 
                 <br><br>
 
-                <img src="https://studio-guez.github.io/fides.signature/logo.png" alt="Fondation Fides" width="122" height="40" style="display: block; border: 0;">
+                <img src="https://studio-guez.github.io/fides.signature/logo.png" alt="Fondation Fides" width="122" height="81" style="display: block; border: 0;">
               </td>
             </tr>
           </table>
