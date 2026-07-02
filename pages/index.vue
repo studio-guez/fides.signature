@@ -99,48 +99,8 @@
           <textarea style="font-size: 12px; line-height: 14px"
                     readonly
                     v-if="showCode"
-          >
-            <div style="font-family: Helvetica, sans-serif; margin: 0; font-size: 15px; line-height: 18px;"
-              ><b>{{getCleanedEmptyString(firstname, 'prénom')}} {{getCleanedEmptyString(name, '/ nom')}}</b></div>
-            <div style="font-family: Helvetica, sans-serif; margin: 0; font-size: 15px; line-height: 18px;"
-              >{{getCleanedEmptyString(activity, 'fonction')}}</div>
-            <div><br></div>
-            <div
-              ><img src="https://studio-guez.github.io/fides.signature/logo.png" alt="logo Fondation Fides" width="122" height="40" style="width: 122px; height: 40px; max-width: 122px; display: block;"></div>
-            <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
-              ><b>Fondation Fides</b></div>
-            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
-              ><a :href="'mailto:' + email"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
-              >
-                <u>{{getCleanedEmptyString(email, 'email') }}</u>
-              </a>
-            </div>
-            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
-            ><a :href="'tel:' + phone"
-                target="_blank"
-                rel="noopener noreferrer"
-                style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
-            >
-              <u>{{getCleanedEmptyString(phone, 'votre numéro de téléphone', true) }}</u>
-            </a>
-            </div>
-            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
-            ><a href="https://fondationfides.ch/" target="_blank"
-                    rel="noopener noreferrer">
-                fondationfides.ch
-              </a>
-            </div>
-
-            <div><br></div>
-
-            <div style="color:#919191; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"><i>Accès bureau</i></div>
-            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">Route de la Galaise 17</div>
-            <div style="color:#919191; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"><i>Adresse postale</i></div>
-            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">1228 Plan-les-Ouates</div>
-          </textarea>
+                    :value="signatureCode"
+          ></textarea>
         </div>
 
       </div>
@@ -162,7 +122,19 @@ export default defineComponent({
       email: '',
       phone: '',
       showCode: false,
+      signatureCode: '',
     }
+  },
+
+  watch: {
+    showCode(val: boolean) {
+      if (val) this.updateSignatureCode()
+    },
+    firstname: 'updateSignatureCode',
+    name: 'updateSignatureCode',
+    activity: 'updateSignatureCode',
+    email: 'updateSignatureCode',
+    phone: 'updateSignatureCode',
   },
 
     methods: {
@@ -200,6 +172,33 @@ export default defineComponent({
       //   );
       // }
 
+    },
+
+    updateSignatureCode() {
+      this.$nextTick(() => {
+        const el = this.$refs.htmlContent as HTMLElement
+        if (!el) return
+        const clean = el.innerHTML.replace(/ data-v-[a-z0-9]+=""/g, '')
+        this.signatureCode = this.prettifyHtml(clean)
+      })
+    },
+
+    prettifyHtml(html: string): string {
+      const tab = '  '
+      let indent = 0
+      return html
+        .replace(/>\s*</g, '>\n<')
+        .split('\n')
+        .map(line => {
+          line = line.trim()
+          if (!line) return ''
+          if (/^<\//.test(line)) indent--
+          const result = tab.repeat(Math.max(0, indent)) + line
+          if (!/^<\//.test(line) && !line.endsWith('/>') && !/<\//.test(line)) indent++
+          return result
+        })
+        .filter(Boolean)
+        .join('\n')
     },
 
     getCleanedEmptyString(value: string, placeholder: string, removeWhiteSpace?: boolean):string {
