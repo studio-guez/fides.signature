@@ -7,11 +7,11 @@
         <form
             class="v-mail-signature-generator__content fp-ui-form"
         >
-          <input type="text" placeholder="prénom"   v-model="firstname">
-          <input type="text" placeholder="nom"      v-model="name">
-          <input type="text" placeholder="fonction" v-model="activity" >
-          <input type="text" placeholder="email"   v-model="email" >
-          <input type="text" placeholder="+41000…"   v-model="phone" >
+          <input type="text" placeholder="Prénom"   v-model="firstname">
+          <input type="text" placeholder="Nom"      v-model="name">
+          <input type="text" placeholder="Fonction" v-model="activity" >
+          <input type="text" placeholder="Email"   v-model="email" >
+          <input type="text" placeholder="+41 (0) 22 7…"   v-model="phone" >
         </form>
 
         <div
@@ -24,9 +24,9 @@
               style="width: 100%"
           >
             <div style="font-family: Helvetica, sans-serif; margin: 0; font-size: 15px; line-height: 18px;"
-              ><b>{{getCleanedEmptyString(firstname, 'prénom')}} {{getCleanedEmptyString(name, '/ nom')}}</b></div>
+              ><strong>{{getCleanedEmptyString(firstname, 'Prénom')}} {{getCleanedEmptyString(name, '/ Nom')}}</strong></div>
             <div style="font-family: Helvetica, sans-serif; margin: 0; font-size: 15px; line-height: 18px;"
-              >{{getCleanedEmptyString(activity, 'fonction')}}</div>
+              ><em>{{getCleanedEmptyString(activity, 'Fonction')}}</em></div>
 
             <div><br></div>
 
@@ -36,42 +36,41 @@
             <div><br></div>
 
             <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
-              ><b>Fondation Fides</b></div>
+              >Fondation Immobilière <br>pour le Développement <br>des Entreprises Sociales</div>
 
-            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
+            <div><br></div>
+
+            <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">Route de la Galaise 17</div>
+            <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">1228 Plan-les-Ouates</div>
+
+            <div><br></div>
+
+            <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
             ><a :href="'tel:' + phone.replace('(0)', '').replace(/\s/g, '')"
                 target="_blank"
                 rel="noopener noreferrer"
-                style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
+                style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
             >
-              <u>{{getCleanedEmptyString(phone, 'votre numéro de téléphone') }}</u>
+              {{getCleanedEmptyString(phone, 'Votre numéro de téléphone') }}
             </a>
             </div>
 
-            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
+            <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
               ><a :href="'mailto:' + email"
                  target="_blank"
                  rel="noopener noreferrer"
-                 style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
+                 style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
               >
-                <u>{{getCleanedEmptyString(email, 'email') }}</u>
+                {{getCleanedEmptyString(email, 'Votre email') }}
               </a>
             </div>
 
-            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
+            <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
             ><a href="https://fondationfides.ch/" target="_blank"
                     rel="noopener noreferrer">
                 fondationfides.ch
               </a>
             </div>
-
-            <div><br></div>
-
-            <div style="color:#919191; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"><i>Accès bureau</i></div>
-            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">Route de la Galaise 15b</div>
-            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">1228 Plan-les-Ouates</div>
-            <div style="color:#919191; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"><i>Adresse postale</i></div>
-            <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">Route de la Galaise 17</div>
           </div>
         </div>
         <button
@@ -204,7 +203,7 @@ export default defineComponent({
     getCleanedEmptyString(value: string, placeholder: string, removeWhiteSpace?: boolean):string {
       if(removeWhiteSpace) value = value.replace(/\s/g, '')
       if(value.length > 0) return value
-      return placeholder + ' doit être rempli'
+      return placeholder + ' doit être renseigné'
     }
   },
 
