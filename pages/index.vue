@@ -2,7 +2,7 @@
   <main class="v-mail-signature-generator fp-page">
     <div class="fp-grid-coll-container fp-grid-coll-container--center">
       <div class="fp-grid-coll-24-24 fp-grid-coll-reg-12-24 fp-grid-with-gutter">
-        <h1>Générateur de&nbsp;signature mail Filogie</h1>
+        <h1>Générateur de&nbsp;signature mail Fides</h1>
 
         <form
             class="v-mail-signature-generator__content fp-ui-form"
@@ -31,12 +31,12 @@
             <div><br></div>
 
             <div
-              ><img src="https://studio-guez.github.io/filogie.signature/logo.png" alt="logo Fondation Filogie" width="122" height="40" style="width: 122px; height: 40px; max-width: 122px; display: block;"></div>
+              ><img src="https://studio-guez.github.io/fides.signature/logo.png" alt="logo Fondation Fides" width="122" height="40" style="width: 122px; height: 40px; max-width: 122px; display: block;"></div>
 
             <div><br></div>
 
             <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
-              ><b>Fondation Filogie</b></div>
+              ><b>Fondation Fides</b></div>
 
             <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
             ><a :href="'tel:' + phone"
@@ -59,9 +59,9 @@
             </div>
 
             <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
-            ><a href="https://filogie.ch/" target="_blank"
+            ><a href="https://fondationfides.ch/" target="_blank"
                     rel="noopener noreferrer">
-                filogie.ch
+                fondationfides.ch
               </a>
             </div>
 
@@ -106,9 +106,9 @@
               >{{getCleanedEmptyString(activity, 'fonction')}}</div>
             <div><br></div>
             <div
-              ><img src="https://studio-guez.github.io/filogie.signature/logo.png" alt="logo Fondation Filogie" width="122" height="40" style="width: 122px; height: 40px; max-width: 122px; display: block;"></div>
+              ><img src="https://studio-guez.github.io/fides.signature/logo.png" alt="logo Fondation Fides" width="122" height="40" style="width: 122px; height: 40px; max-width: 122px; display: block;"></div>
             <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
-              ><b>Fondation Filogie</b></div>
+              ><b>Fondation Fides</b></div>
             <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
               ><a :href="'mailto:' + email"
                  target="_blank"
@@ -128,9 +128,9 @@
             </a>
             </div>
             <div style="color:#000000; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
-            ><a href="https://filogie.ch/" target="_blank"
+            ><a href="https://fondationfides.ch/" target="_blank"
                     rel="noopener noreferrer">
-                filogie.ch
+                fondationfides.ch
               </a>
             </div>
 

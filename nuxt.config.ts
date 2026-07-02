@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   ssr: false,
 
   app: {
-    baseURL: '/filogie.signature/',
+    baseURL: '/fides.signature/',
   },
 
   css: [
