@@ -19,64 +19,42 @@
             @click="copySignatureInClipBoard"
             class="v-mail-signature-generator__container"
         >
-          <div
-              dir="ltr"
-              ref="htmlContent"
-              style="width: 100%"
-          >
-            <div style="font-family: Helvetica, sans-serif; margin: 0; font-size: 15px; line-height: 18px;"
-              ><strong v-html="getCleanedEmptyString(firstname, 'Prénom') + ' ' + getCleanedEmptyString(name, '/ Nom')"></strong></div>
-            <div style="font-family: Helvetica, sans-serif; margin: 0; font-size: 15px; line-height: 18px;"
-              ><em v-html="getCleanedEmptyString(activity, 'Fonction')"></em></div>
+          <table dir="ltr" ref="htmlContent" cellpadding="0" cellspacing="0" border="0" role="presentation">
+            <tr>
+              <td style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 18px; color: #000000;">
+                <strong v-html="getCleanedEmptyString(firstname, 'Prénom') + ' ' + getCleanedEmptyString(name, '/ Nom')"></strong><br>
+                <em v-html="getCleanedEmptyString(activity, 'Fonction')"></em>
 
-            <div><br></div>
+                <br><br>
 
-            <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
-              >Fondation Immobilière <br>pour le Développement <br>des Entreprises Sociales</div>
+                Fondation Immobilière<br>pour le Développement<br>des Entreprises Sociales
 
-            <div><br></div>
+                <br><br>
 
-            <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">Route de la Galaise 17</div>
-            <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;">1228 Plan-les-Ouates</div>
+                Route de la Galaise 17<br>1228 Plan-les-Ouates
 
-            <div><br></div>
+                <br><br>
 
-            <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
-            ><a :href="'tel:' + phone.replace('(0)', '').replace(/\s/g, '')"
-                target="_blank"
-                rel="noopener noreferrer"
-                style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px; text-decoration: none; color: #000000;"
-                v-html="getCleanedEmptyString(phone, 'Nº de téléphone')"
-            ></a>
-            </div>
+                <a :href="'tel:' + phone.replace('(0)', '').replace(/\s/g, '')"
+                   style="color: #000000; text-decoration: none;"
+                   v-html="getCleanedEmptyString(phone, 'Nº de téléphone')"></a><br>
+                <a :href="'mailto:' + email"
+                   style="color: #000000; text-decoration: none;"
+                   v-html="getCleanedEmptyString(email, 'Email')"></a><br>
+                <a href="https://fondationfides.ch/"
+                   style="color: #000000; text-decoration: none;">fondationfides.ch</a>
 
-            <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
-              ><a :href="'mailto:' + email"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px; text-decoration: none; color: #000000;"
-                 v-html="getCleanedEmptyString(email, 'Email')"
-              ></a>
-            </div>
+                <template v-if="remarks">
+                  <br>
+                  <i v-html="remarks.replace(/\n/g, '<br>')"></i>
+                </template>
 
-            <div style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
-            ><a href="https://fondationfides.ch/" target="_blank"
-                    rel="noopener noreferrer"
-                    style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px; text-decoration: none; color: #000000;">
-                fondationfides.ch
-              </a>
-            </div>
+                <br><br>
 
-            <template v-if="remarks">
-              <div style="font-family: Helvetica, sans-serif; font-size: 13px; line-height: 16px;"
-                ><i v-html="remarks.replace(/\n/g, '<br>')"></i></div>
-            </template>
-
-            <div><br></div>
-
-            <div
-              ><img src="https://studio-guez.github.io/fides.signature/logo.png" alt="logo Fondation Fides" width="122" height="40" style="width: 122px; height: 40px; max-width: 122px; display: block;"></div>
-          </div>
+                <img src="https://studio-guez.github.io/fides.signature/logo.png" alt="Fondation Fides" width="122" height="40" style="display: block; border: 0;">
+              </td>
+            </tr>
+          </table>
         </div>
         <button
             @click="copySignatureInClipBoard"
@@ -184,7 +162,7 @@ export default defineComponent({
       this.$nextTick(() => {
         const el = this.$refs.htmlContent as HTMLElement
         if (!el) return
-        const clean = el.innerHTML
+        const clean = el.outerHTML
           .replace(/ data-v-[a-z0-9]+(?:="[^"]*")?/g, '')
           .replace(/<span style="color: #FF0000">(.*?)<\/span>/gs, '$1')
         this.signatureCode = this.prettifyHtml(clean)
