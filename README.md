@@ -1,6 +1,6 @@
-# filogie.signature
+# fides.signature
 
-Email signature generator for Filogie — built with Nuxt 3.
+Email signature generator for Fides — built with Nuxt 3.
 
 ## Prerequisites
 
@@ -11,8 +11,8 @@ Email signature generator for Filogie — built with Nuxt 3.
 ## Getting started
 
 ```bash
-git clone https://github.com/studio-guez/filogie.signature.git
-cd filogie.signature
+git clone https://github.com/studio-guez/fides.signature.git
+cd fides.signature
 ```
 
 ---
