@@ -24,9 +24,9 @@
               style="width: 100%"
           >
             <div style="font-family: Helvetica, sans-serif; margin: 0; font-size: 15px; line-height: 18px;"
-              ><strong>{{getCleanedEmptyString(firstname, 'Prénom')}} {{getCleanedEmptyString(name, '/ Nom')}}</strong></div>
+              ><strong v-html="getCleanedEmptyString(firstname, 'Prénom') + ' ' + getCleanedEmptyString(name, '/ Nom')"></strong></div>
             <div style="font-family: Helvetica, sans-serif; margin: 0; font-size: 15px; line-height: 18px;"
-              ><em>{{getCleanedEmptyString(activity, 'Fonction')}}</em></div>
+              ><em v-html="getCleanedEmptyString(activity, 'Fonction')"></em></div>
 
             <div><br></div>
 
@@ -51,7 +51,7 @@
                 rel="noopener noreferrer"
                 style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
             >
-              {{getCleanedEmptyString(phone, 'Votre numéro de téléphone') }}
+              <span v-html="getCleanedEmptyString(phone, 'Nº de téléphone')"></span>
             </a>
             </div>
 
@@ -61,7 +61,7 @@
                  rel="noopener noreferrer"
                  style="font-family: Helvetica, sans-serif; font-size: 15px; line-height: 18px;"
               >
-                {{getCleanedEmptyString(email, 'Votre email') }}
+                <span v-html="getCleanedEmptyString(email, 'Email')"></span>
               </a>
             </div>
 
@@ -203,7 +203,7 @@ export default defineComponent({
     getCleanedEmptyString(value: string, placeholder: string, removeWhiteSpace?: boolean):string {
       if(removeWhiteSpace) value = value.replace(/\s/g, '')
       if(value.length > 0) return value
-      return placeholder + ' doit être renseigné'
+      return `<span style="color: red">${placeholder} doit être renseigné</span>`
     }
   },
 
