@@ -22,7 +22,7 @@
             <tbody>
               <tr>
                 <td style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 18px; color: #707070;">
-                  <strong v-html="getCleanedEmptyString(firstname, 'Prénom') + ' ' + getCleanedEmptyString(name, '/ Nom')"></strong><br>
+                  <strong style="font-weight: bold;" v-html="getCleanedEmptyString(firstname, 'Prénom') + ' ' + getCleanedEmptyString(name, '/ Nom')"></strong><br>
                   <em style="color: #4584A9;" v-html="getCleanedEmptyString(activity, 'Fonction')"></em>
 
                   <br><br>
