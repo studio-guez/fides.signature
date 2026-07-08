@@ -10,7 +10,6 @@
           <input type="text" placeholder="Prénom *"   v-model="firstname">
           <input type="text" placeholder="Nom *"      v-model="name">
           <input type="text" placeholder="Fonction *" v-model="activity" >
-          <input type="text" placeholder="Email *"   v-model="email" >
           <input type="text" placeholder="+41 (0) 22 7… *"   v-model="phone" >
           <textarea placeholder="Remarques éventuelles (absences, etc.)"   v-model="remarks"></textarea>
         </form>
@@ -39,9 +38,6 @@
                   <a :href="'tel:' + phone.replace('(0)', '').replace(/\s/g, '')"
                     style="color: #707070; text-decoration: none;"
                     v-html="getCleanedEmptyString(phone, 'Nº de téléphone')"></a><br>
-                  <a :href="'mailto:' + email"
-                    style="color: #707070; text-decoration: none;"
-                    v-html="getCleanedEmptyString(email, 'Email')"></a><br>
                   <a href="https://fondationfides.ch/"
                     style="color: #707070; text-decoration: none;">fondationfides.ch</a>
 
@@ -104,7 +100,6 @@ export default defineComponent({
       firstname: '',
       name: '',
       activity: '',
-      email: '',
       phone: '',
       remarks: '',
       showCode: false,
@@ -119,7 +114,6 @@ export default defineComponent({
     firstname: 'updateSignatureCode',
     name: 'updateSignatureCode',
     activity: 'updateSignatureCode',
-    email: 'updateSignatureCode',
     phone: 'updateSignatureCode',
     remarks: 'updateSignatureCode',
   },
