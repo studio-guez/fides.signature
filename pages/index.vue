@@ -20,40 +20,43 @@
             class="v-mail-signature-generator__container"
         >
           <table dir="ltr" ref="htmlContent" cellpadding="0" cellspacing="0" border="0" role="presentation">
-            <tr>
-              <td style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 18px; color: #000000;">
-                <strong v-html="getCleanedEmptyString(firstname, 'Prénom') + ' ' + getCleanedEmptyString(name, '/ Nom')"></strong><br>
-                <em v-html="getCleanedEmptyString(activity, 'Fonction')"></em>
+            <tbody>
+              <tr>
+                <td style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 18px; color: #707070;">
+                  <strong v-html="getCleanedEmptyString(firstname, 'Prénom') + ' ' + getCleanedEmptyString(name, '/ Nom')"></strong><br>
+                  <em style="color: #4584A9;" v-html="getCleanedEmptyString(activity, 'Fonction')"></em>
 
-                <br><br>
+                  <br><br>
 
-                Fondation Immobilière<br>pour le Développement<br>des Entreprises Sociales
+                  Fondation Immobilière<br>pour le Développement<br>des Entreprises Sociales
 
-                <br><br>
+                  <br><br>
 
-                Route de la Galaise 17<br>1228 Plan-les-Ouates
+                  Route de la Galaise 17<br>1228 Plan-les-Ouates
 
-                <br><br>
+                  <br><br>
 
-                <a :href="'tel:' + phone.replace('(0)', '').replace(/\s/g, '')"
-                   style="color: #000000; text-decoration: none;"
-                   v-html="getCleanedEmptyString(phone, 'Nº de téléphone')"></a><br>
-                <a :href="'mailto:' + email"
-                   style="color: #000000; text-decoration: none;"
-                   v-html="getCleanedEmptyString(email, 'Email')"></a><br>
-                <a href="https://fondationfides.ch/"
-                   style="color: #000000; text-decoration: none;">fondationfides.ch</a>
+                  <a :href="'tel:' + phone.replace('(0)', '').replace(/\s/g, '')"
+                    style="color: #707070; text-decoration: none;"
+                    v-html="getCleanedEmptyString(phone, 'Nº de téléphone')"></a><br>
+                  <a :href="'mailto:' + email"
+                    style="color: #707070; text-decoration: none;"
+                    v-html="getCleanedEmptyString(email, 'Email')"></a><br>
+                  <a href="https://fondationfides.ch/"
+                    style="color: #707070; text-decoration: none;">fondationfides.ch</a>
 
-                <template v-if="remarks">
-                  <br>
-                  <i v-html="remarks.replace(/\n/g, '<br>')"></i>
-                </template>
+                  <template v-if="remarks">
+                    <br>
+                    <i style="font-size:13px;" v-html="remarks.replace(/\n/g, '<br>')"></i>
+                  </template>
 
-                <br><br>
-
-                <img src="https://studio-guez.github.io/fides.signature/logo.png" alt="Fondation Fides" width="122" height="81" style="display: block; border: 0;">
-              </td>
-            </tr>
+                  <br><br>
+                  <a href="https://fondationfides.ch/" style="display: block; text-decoration: none;">
+                    <img src="https://studio-guez.github.io/fides.signature/logo.png" alt="Fondation Fides" width="122" height="81" style="display: block; border: 0;">
+                  </a>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
         <button
