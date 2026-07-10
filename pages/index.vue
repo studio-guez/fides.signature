@@ -38,8 +38,6 @@
                   <a :href="'tel:' + phone.replace('(0)', '').replace(/\s/g, '')"
                     style="color: #707070; text-decoration: none;"
                     v-html="getCleanedEmptyString(phone, 'Nº de téléphone')"></a><br>
-                  <a href="https://fondationfides.ch/"
-                    style="color: #707070; text-decoration: none;">fondationfides.ch</a>
 
                   <template v-if="remarks">
                     <br>
